@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F400 Manufacturing Time Definition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e0f2e9; /* Genel arka plan */
+        }
+        /* Yeşil Başlık */
+        .header-bar {
+            background-color: #3ea53e; /* Schneider Green approx */
+            color: white;
+        }
+        /* Hücre Stilleri */
+        .label-col {
+            font-weight: 700;
+            text-align: right;
+            padding-right: 10px;
+            color: #000;
+        }
+        .data-input {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #999;
+            text-align: center;
+            width: 100%;
+            font-weight: 600;
+            color: #000;
+            padding: 2px 0;
+        }
+        .data-input:focus {
+            outline: none;
+            border-bottom: 2px solid #3ea53e;
+        }
+        .dropdown-select {
+            background-color: #a8e6a8; /* Açık yeşil seçim kutusu */
+            border: 1px solid #666;
+            width: 100%;
+            padding: 4px;
+            font-weight: bold;
+            font-size: 0.85rem; /* Yazı boyutunu biraz küçülttüm uzun isimler sığsın */
+        }
+        /* Kırmızı kutulu inputlar için */
+        .input-box-red {
+            border: 1px solid #cc0000;
+            background-color: white;
+            color: #cc0000;
+            text-align: center;
+            font-weight: bold;
+            width: 80px;
+            margin: 0 auto;
+            display: block;
+        }
+        .input-box-black {
+            border: 1px solid #000;
+            background-color: white;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+            width: 80px;
+            margin: 0 auto;
+            display: block;
+        }
+        /* Tablo Çizgileri */
+        .vertical-divider {
+            border-right: 2px solid #ccc;
+        }
+        /* Resim Placeholder */
+        .img-placeholder {
+            background-color: #ddd;
+            border: 1px solid #999;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="p-2 min-h-screen flex flex-col items-center">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-7xl bg-[#ccffcc] shadow-lg border border-gray-400">
+        
+        <!-- Header -->
+        <div class="header-bar p-2 flex justify-between items-center border-b border-white">
+            <div class="font-bold text-xl tracking-wide pl-4">Schneider <span class="font-normal text-sm italic">Electric</span></div>
+            <div class="font-bold text-lg">F400 MANUFACTURING TIME DEFINITION</div>
+            <button class="bg-white text-black text-xs px-2 py-1 rounded shadow">Hazırlayan</button>
+        </div>
+
+        <!-- Top Image Section -->
+        <div class="bg-gray-200 p-2 border-b border-gray-400">
+            <div class="grid grid-cols-6 gap-2">
+                <!-- Help Section -->
+                <div class="col-span-1 bg-[#e6e6e6] border border-gray-400 flex flex-col items-center justify-center p-2">
+                    <span class="italic font-bold text-gray-700 mb-2 text-sm">PRESS FOR HELP</span>
+                    <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <!-- Machine Images Placeholders -->
+                <div class="col-span-1 img-placeholder"><img src="https://via.placeholder.com/150x120?text=Switchgear+1" alt="Machine 1" class="w-full h-full object-cover opacity-80"></div>
+                <div class="col-span-1 img-placeholder"><img src="https://via.placeholder.com/150x120?text=Switchgear+2" alt="Machine 2" class="w-full h-full object-cover opacity-80"></div>
+                <div class="col-span-1 img-placeholder"><img src="https://via.placeholder.com/150x120?text=Switchgear+3" alt="Machine 3" class="w-full h-full object-cover opacity-80"></div>
+                <div class="col-span-1 img-placeholder"><img src="https://via.placeholder.com/150x120?text=Switchgear+4" alt="Machine 4" class="w-full h-full object-cover opacity-80"></div>
+                <div class="col-span-1 img-placeholder"><img src="https://via.placeholder.com/150x120?text=Switchgear+5" alt="Machine 5" class="w-full h-full object-cover opacity-80"></div>
+            </div>
+        </div>
+
+        <!-- Main Data Grid -->
+        <div class="grid grid-cols-12 text-sm">
+            
+            <!-- Labels Column (Left) -->
+            <div class="col-span-2 py-4 pr-2 flex flex-col gap-4 pt-12">
+                <div class="label-col h-8 flex items-center justify-end">Cubicle Types:</div>
+                <div class="label-col h-6 flex items-center justify-end">Total Design Time:</div>
+                <div class="label-col h-6 flex items-center justify-end">Useful Time:</div>
+                <div class="label-col h-6 flex items-center justify-end">Non-Value Added:</div>
+                <div class="label-col h-6 flex items-center justify-end mt-2">KD (%) :</div>
+                <div class="label-col h-6 flex items-center justify-end">KE (2022):</div>
+                <div class="label-col h-8 flex items-center justify-end">KER (2023):</div>
+                <div class="label-col h-8 flex items-center justify-end">KSR (2014):</div>
+                <div class="label-col h-6 flex items-center justify-end">OTR (2014):</div>
+                <div class="label-col h-6 flex items-center justify-end">TSR (2014):</div>
+            </div>
+
+            <!-- 2023 Column -->
+            <div class="col-span-2 vertical-divider px-2 py-2">
+                <div class="text-center font-bold mb-2">2023</div>
+                
+                <div class="h-8 mb-4">
+                    <select id="select-2023" class="dropdown-select" onchange="updateColumn('2023')">
+                        <option value="">Seçiniz...</option>
+                        <!-- JS fills options -->
+                    </select>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="h-6"><input type="text" id="dt-2023" class="data-input" readonly></div>
+                    <div class="h-6"><input type="text" id="ut-2023" class="data-input" readonly></div>
+                    <div class="h-6"><input type="text" id="nva-2023" class="data-input" readonly></div>
+                    <div class="h-6 mt-2"><input type="text" id="kd-2023" class="data-input" readonly></div>
+                    <div class="h-6"><input type="text" id="ke-2023" class="data-input" readonly></div>
+                    
+                    <div class="h-8 flex items-center justify-center gap-2">
+                        <span class="font-bold">%</span> <input type="text" id="ker-2023" class="input-box-red" readonly>
+                    </div>
+                    <div class="h-8 flex items-center justify-center gap-2">
+                        <span class="font-bold">%</span> <input type="text" id="ksr-2023" class="input-box-red" readonly value="0,723289">
+                    </div>
+
+                    <div class="h-6"><input type="text" id="otr-2023" class="data-input" readonly></div>
+                    <div class="h-6"><input type="text" id="tsr-2023" class="data-input" readonly value="290382,902"></div>
+                </div>
+            </div>
+
+            <!-- 2024 Column -->
+            <div class="col-span-2 vertical-divider px-2 py-2">
+                <div class="text-center font-bold mb-2">2024</div>
+                <div class="h-8 mb-4"><select id="select-2024" class="dropdown-select" onchange="updateColumn('2024')"><option value="">Seçiniz...</option></select></div>
+                <div class="flex flex-col gap-4">
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 mt-2 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                </div>
+            </div>
+
+            <!-- 2025 Column -->
+            <div class="col-span-2 vertical-divider px-2 py-2">
+                <div class="text-center font-bold mb-2">2025</div>
+                <div class="h-8 mb-4"><select id="select-2025" class="dropdown-select" onchange="updateColumn('2025')"><option value="">Seçiniz...</option></select></div>
+                <div class="flex flex-col gap-4">
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 mt-2 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                </div>
+            </div>
+            
+             <!-- 2026 Column -->
+             <div class="col-span-2 vertical-divider px-2 py-2">
+                <div class="text-center font-bold mb-2">2026</div>
+                <div class="h-8 mb-4"><select id="select-2026" class="dropdown-select" onchange="updateColumn('2026')"><option value="">Seçiniz...</option></select></div>
+                <div class="flex flex-col gap-4">
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 mt-2 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                </div>
+            </div>
+
+             <!-- 2027 Column -->
+             <div class="col-span-2 px-2 py-2">
+                <div class="text-center font-bold mb-2">2027</div>
+                <div class="h-8 mb-4"><select id="select-2027" class="dropdown-select" onchange="updateColumn('2027')"><option value="">Seçiniz...</option></select></div>
+                <div class="flex flex-col gap-4">
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-6 mt-2 border-b border-gray-400"></div>
+                     <div class="h-6 border-b border-gray-400"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                     <div class="h-8 flex items-center justify-center gap-2"><span class="font-bold">%</span> <input class="input-box-black"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- TAM VERİ SETİ ---
+        // Tüm ürünleri (38 Adet) veritabanına ekledim.
+        const db = {
+            "NL AD6-1250A": { dt: "1.519,13", ut: "1.359,65", nva: "159,48", kd: "0,895018", ke: "0,673289", ker: "0,723289", otr: "2100,31" },
+            "NL AD6-2500A": { dt: "1.384,64", ut: "1.244,38", nva: "140,25", kd: "0,898706", ke: "0,673289", ker: "0,723289", otr: "1914,37" },
+            "NL CL6-1250A": { dt: "1.328,46", ut: "1.199,44", nva: "129,02", kd: "0,902879", ke: "0,673289", ker: "0,723289", otr: "1836,69" },
+            "NL CL6-2500A": { dt: "1.309,32", ut: "1.184,04", nva: "125,28", kd: "0,904313", ke: "0,673289", ker: "0,723289", otr: "1810,23" },
+            "NL GL6-1250A": { dt: "1.292,90", ut: "1.171,16", nva: "121,74", kd: "0,905840", ke: "0,673289", ker: "0,723289", otr: "1787,53" },
+            "NL GL6-2500A": { dt: "1.287,16", ut: "1.166,54", nva: "120,62", kd: "0,906291", ke: "0,673289", ker: "0,723289", otr: "1779,59" },
+            "NL TT6-1250A": { dt: "1.332,07", ut: "1.202,83", nva: "129,24", kd: "0,902976", ke: "0,673289", ker: "0,723289", otr: "1841,68" },
+            "NL TT6-2500A": { dt: "1.291,93", ut: "1.169,64", nva: "122,29", kd: "0,905340", ke: "0,673289", ker: "0,723289", otr: "1786,19" },
+            "NL RD6 -1250A": { dt: "1.089,56", ut: "973,56", nva: "116,00", kd: "0,893538", ke: "0,673289", ker: "0,723289", otr: "1506,40" },
+            "NL RD6-2500A": { dt: "1.134,13", ut: "1.009,45", nva: "124,68", kd: "0,890063", ke: "0,673289", ker: "0,723289", otr: "1568,02" },
+            "NL AL6-1250A": { dt: "1.089,56", ut: "973,56", nva: "116,00", kd: "0,893538", ke: "0,673289", ker: "0,723289", otr: "1506,40" },
+            "NL AL6-2500A": { dt: "1.134,13", ut: "1.009,45", nva: "124,68", kd: "0,890063", ke: "0,673289", ker: "0,723289", otr: "1568,02" },
+            "NL FD6-1250A": { dt: "1.083,56", ut: "969,97", nva: "113,59", kd: "0,895171", ke: "0,673289", ker: "0,723289", otr: "1498,10" },
+            "NL VITM6-1250A": { dt: "1.083,56", ut: "969,97", nva: "113,59", kd: "0,895171", ke: "0,673289", ker: "0,723289", otr: "1498,10" },
+            "NL BM6-1250A": { dt: "1.072,15", ut: "960,39", nva: "111,76", kd: "0,895759", ke: "0,673289", ker: "0,723289", otr: "1482,33" },
+            "NL BM6-2500A": { dt: "1.072,15", ut: "960,39", nva: "111,76", kd: "0,895759", ke: "0,673289", ker: "0,723289", otr: "1482,33" },
+            "NL LB6-1250A": { dt: "1.072,15", ut: "960,39", nva: "111,76", kd: "0,895759", ke: "0,673289", ker: "0,723289", otr: "1482,33" },
+            "NL LB6-2500A": { dt: "1.083,56", ut: "969,97", nva: "113,59", kd: "0,895171", ke: "0,673289", ker: "0,723289", otr: "1498,10" },
+            "NL FD6-2500A": { dt: "1.052,94", ut: "940,43", nva: "112,51", kd: "0,893151", ke: "0,673289", ker: "0,723289", otr: "1455,77" },
+            "XE AD6-1250A": { dt: "1.316,73", ut: "632,02", nva: "684,71", kd: "0,479992", ke: "0,673289", ker: "0,723289", otr: "1820,48" },
+            "XE AD6-2500A": { dt: "1.270,48", ut: "605,77", nva: "664,71", kd: "0,476804", ke: "0,673289", ker: "0,723289", otr: "1756,53" },
+            "XE CL6-1250A": { dt: "1.241,89", ut: "471,76", nva: "770,13", kd: "0,379873", ke: "0,673289", ker: "0,723289", otr: "1717,00" },
+            "XE GL6-1250A": { dt: "1.217,12", ut: "443,28", nva: "773,84", kd: "0,364204", ke: "0,673289", ker: "0,723289", otr: "1682,76" },
+            "XE TT6-1250A": { dt: "994,25", ut: "13,44", nva: "980,81", kd: "0,013518", ke: "0,673289", ker: "0,723289", otr: "1374,62" },
+            "XE CL6-2500A": { dt: "992,25", ut: "13,44", nva: "978,81", kd: "0,013545", ke: "0,673289", ker: "0,723289", otr: "1371,86" },
+            "XE GL6-2500A": { dt: "1.005,66", ut: "13,44", nva: "992,22", kd: "0,013364", ke: "0,673289", ker: "0,723289", otr: "1390,40" },
+            "XE TT6-2500A": { dt: "1.005,66", ut: "13,44", nva: "992,22", kd: "0,013364", ke: "0,673289", ker: "0,723289", otr: "1390,40" },
+            "XE RD6 -1250A": { dt: "969,45", ut: "13,44", nva: "956,01", kd: "0,013864", ke: "0,673289", ker: "0,723289", otr: "1340,34" },
+            "XE AL6 -1250A": { dt: "969,45", ut: "13,44", nva: "956,01", kd: "0,013864", ke: "0,673289", ker: "0,723289", otr: "1340,34" },
+            "XE AL6 -25000A": { dt: "969,45", ut: "13,44", nva: "956,01", kd: "0,013864", ke: "0,673289", ker: "0,723289", otr: "1340,34" },
+            "XE FD6-1250A": { dt: "974,87", ut: "13,44", nva: "961,43", kd: "0,013786", ke: "0,673289", ker: "0,723289", otr: "1347,83" },
+            "XE VITM6-1250A": { dt: "1.014,66", ut: "13,44", nva: "1.001,22", kd: "0,013246", ke: "0,673289", ker: "0,723289", otr: "1402,84" },
+            "XE BM6-1250A": { dt: "1.014,66", ut: "13,44", nva: "1.001,22", kd: "0,013246", ke: "0,673289", ker: "0,723289", otr: "1402,84" },
+            "XE BM6-2500A": { dt: "1.014,66", ut: "13,44", nva: "1.001,22", kd: "0,013246", ke: "0,673289", ker: "0,723289", otr: "1402,84" },
+            "XE LB6-1250A": { dt: "1.003,25", ut: "13,44", nva: "989,81", kd: "0,013396", ke: "0,673289", ker: "0,723289", otr: "1387,07" },
+            "XE LB6-2500A": { dt: "1.003,25", ut: "13,44", nva: "989,81", kd: "0,013396", ke: "0,673289", ker: "0,723289", otr: "1387,07" },
+            "XE RD6-2500A": { dt: "1.014,66", ut: "13,44", nva: "1.001,22", kd: "0,013246", ke: "0,673289", ker: "0,723289", otr: "1402,84" },
+            "XE FD6-2500A": { dt: "1.000,47", ut: "13,44", nva: "987,03", kd: "0,013434", ke: "0,673289", ker: "0,723289", otr: "1383,22" }
+        };
+
+        // Dropdownları doldur
+        const years = ['2023', '2024', '2025', '2026', '2027'];
+        years.forEach(year => {
+            const select = document.getElementById(`select-${year}`);
+            if(select) {
+                Object.keys(db).forEach(product => {
+                    const opt = document.createElement('option');
+                    opt.value = product;
+                    opt.innerText = product;
+                    select.appendChild(opt);
+                });
+                
+                // 2023 için varsayılan seçim yapalım
+                if(year === '2023') {
+                    select.value = "NL AD6-1250A";
+                    updateColumn('2023');
+                }
+            }
+        });
+
+        // Sütun Güncelleme Fonksiyonu
+        function updateColumn(year) {
+            const select = document.getElementById(`select-${year}`);
+            const val = select.value;
+            
+            if(val && db[val]) {
+                // Veriler varsa doldur
+                safeSetVal(`dt-${year}`, db[val].dt);
+                safeSetVal(`ut-${year}`, db[val].ut);
+                safeSetVal(`nva-${year}`, db[val].nva);
+                safeSetVal(`kd-${year}`, db[val].kd);
+                safeSetVal(`ke-${year}`, db[val].ke);
+                safeSetVal(`ker-${year}`, db[val].ker); // Kırmızı kutu
+                
+                // Eğer KSR, OTR değerleri db'de varsa onları da çek, yoksa sabit bırak
+                if(db[val].otr) safeSetVal(`otr-${year}`, db[val].otr);
+            } else {
+                // Boş seçilirse temizle
+                safeSetVal(`dt-${year}`, "");
+                safeSetVal(`ut-${year}`, "");
+                safeSetVal(`nva-${year}`, "");
+                safeSetVal(`kd-${year}`, "");
+                safeSetVal(`ke-${year}`, "");
+                safeSetVal(`ker-${year}`, "");
+                safeSetVal(`otr-${year}`, "");
+            }
+        }
+
+        function safeSetVal(id, val) {
+            const el = document.getElementById(id);
+            if(el) el.value = val;
+        }
+    </script>
+</body>
+</html>
